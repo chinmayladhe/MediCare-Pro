@@ -1,0 +1,56 @@
+# =============================================================
+#  MediCare Pro — Root .gitignore
+# =============================================================
+
+# ─── Java / Maven (backend) ───────────────────────────────────
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/*.iml
+backend/*.class
+backend/*.jar
+backend/*.war
+backend/*.ear
+backend/*.zip
+backend/*.nar
+
+# IDE
+.idea/
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+.factorypath
+.vscode/
+
+# ─── Node / React / Vite (frontend) ──────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ─── OS & Editor ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp
+
+# ─── Uploads / user-generated content ─────────────────────────
+uploads/
+backend/uploads/
+
+# ─── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
