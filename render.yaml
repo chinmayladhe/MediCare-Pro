@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: medicare-backend
+    env: docker
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://medicare-db:3306/healthcare_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: medicare-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: medicare-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        # Update this to your actual Vercel frontend URL once deployed
+        value: "https://your-vercel-app-url.vercel.app"
+
+databases:
+  - name: medicare-db
+    databaseName: healthcare_db
+    user: medicare_user
